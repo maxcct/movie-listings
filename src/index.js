@@ -1,12 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Axios from 'axios';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const apiKey = '9721b04b';
+const imdbIDs = ['0478304', '0103064', '2265171', '0396184'];
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+const initialiseApp = data => {
+  ReactDOM.render(<App movies={data} />, document.getElementById('root'));
+};
+
+Promise.all(
+  imdbIDs.map(id =>
+    Axios.get(`http://www.omdbapi.com/?i=tt${id}&apikey=${apiKey}`),
+  ),
+).then(data => initialiseApp(data.map(movie => movie.data)));
+
 serviceWorker.unregister();
