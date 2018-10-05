@@ -7,15 +7,20 @@ class App extends Component {
     super(props);
     this.state = {
       movies: this.props.movies,
+      selection: null,
     };
   }
 
+  toggleView(selection) {
+    this.setState({
+      selection: selection,
+    });
+  }
+
   render() {
-    return (
-      <div className="App">
-        <Listings movies={this.state.movies} />
-      </div>
-    );
+    return !this.state.selection ? (
+      <Listings movies={this.state.movies} toggleView={this.toggleView} />
+    ) : null;
   }
 }
 
