@@ -14,6 +14,7 @@ class App extends Component {
     this.toggleFavouritesView = this.toggleFavouritesView.bind(this);
     this.toggleFavourite = this.toggleFavourite.bind(this);
     this.movieListings = this.movieListings.bind(this);
+    this.warn = this.warn.bind(this);
     this.state = {
       movies: this.props.movies,
       searchResults: [],
@@ -110,9 +111,9 @@ class App extends Component {
   }
 
   warn(about) {
-    if (about === 'favourites') {
+    if (about === 'no favourites') {
       this.setState({
-        warningClass: 'warning--visible',
+        warningClass: 'warning warning--visible',
       });
     }
   }
