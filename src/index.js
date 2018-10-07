@@ -6,10 +6,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const apiKey = '9721b04b';
-const imdbIDs = ['0478304', '0103064', '2265171', '0396184'];
+const imdbIDs = ['2527336', '5109784', '0478304', '0103064', '2265171'];
 
 const initialiseApp = data => {
-  ReactDOM.render(<App movies={data} />, document.getElementById('root'));
+  ReactDOM.render(
+    <App movies={data} apiKey={apiKey} />,
+    document.getElementById('root'),
+  );
 };
 
 Promise.all(

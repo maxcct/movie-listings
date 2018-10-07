@@ -5,9 +5,8 @@ const formatTitle = title => {
   if (titleWordsArray.length > 1) {
     let firstWordOfTitle = titleWordsArray.slice(0, 1);
     let restOfTitle = titleWordsArray.slice(1);
-    const sequel = parseInt(restOfTitle[0]);
-    if (sequel) {
-      firstWordOfTitle.push(` ${sequel.toString()}`);
+    if (parseInt(restOfTitle[0]) || restOfTitle[0].slice(-1) === ':') {
+      firstWordOfTitle.push(` ${restOfTitle[0]}`);
       restOfTitle = restOfTitle.slice(1).join(' ');
     } else {
       firstWordOfTitle = firstWordOfTitle[0];
