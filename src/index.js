@@ -6,7 +6,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const apiKey = '9721b04b';
-const imdbIDs = ['2527336', '5109784', '0478304', '0103064', '2265171'];
+const imdbIDs = [
+  '2527336',
+  '5109784',
+  '0248654',
+  '0478304',
+  '0103064',
+  '2265171',
+];
 
 const initialiseApp = data => {
   ReactDOM.render(

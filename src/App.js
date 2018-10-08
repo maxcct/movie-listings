@@ -28,6 +28,12 @@ class App extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if (this.state.warningClass.includes('visible')) {
+      setTimeout(() => this.setState({ warningClass: 'warning' }), 4000);
+    }
+  }
+
   search() {
     Axios.get(
       `http://www.omdbapi.com/?s=${this.state.searchText}&apikey=${
@@ -91,11 +97,15 @@ class App extends Component {
         };
       });
     } else {
-      this.setState(prevState => ({
-        favourites: prevState.favourites.filter(
-          favourite => favourite !== imdbID,
-        ),
-      }));
+      this.setState(prevState => {
+        const newState = {
+          favourites: prevState.favourites.filter(
+            favourite => favourite !== imdbID,
+          ),
+        };
+        newState.favouritesView = newState.favourites.length;
+        return newState;
+      });
     }
   }
 
@@ -147,10 +157,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p className={this.state.warningClass}>
-          You don't have any favourites! Add some by selecting a listing, then
-          starring it
-        </p>
+        <div className={this.state.warningClass}>
+          <span className="warning__text">
+            You don't have any favourites! Add some by selecting a listing, then
+            starring it.
+          </span>
+        </div>
         {this.mainContent()}
       </div>
     );

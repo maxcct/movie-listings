@@ -5,7 +5,7 @@ const DetailNav = props => (
     <img
       className="details-nav__icon"
       onClick={() => props.toggleView(null)}
-      src="/icons/back-white.png"
+      src="/icons/back-dark.png"
       alt="back nav item"
     />
     <img
@@ -13,7 +13,7 @@ const DetailNav = props => (
       onClick={() => props.toggleFavourite(props.movie.imdbID)}
       src={
         !props.favourites.includes(props.movie.imdbID)
-          ? '/icons/star-white.png'
+          ? '/icons/star-dark.png'
           : '/icons/star-gold.png'
       }
       alt="star nav item"
