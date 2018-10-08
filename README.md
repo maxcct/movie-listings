@@ -1,7 +1,11 @@
-## SET-UP
-In order to run this web app, run `npm i`, `npm i -g serve`, then
-`serve -s build`.
+## Set-up
+In order to launch this web app in production mode, run:
+- `npm i`
+- `npm run build`
+- `npm i serve`
+- `serve -s build`
 
+### Features
 This app displays a number of film/TV listings drawn from the OMBb API.
 
 Users can select individual listings to view them in more detail, and
