@@ -5,7 +5,7 @@ In order to launch this web app in production mode, run:
 - `npm i serve`
 - `serve -s build`
 
-### Features
+## Features
 This app displays a number of film/TV listings drawn from the OMBb API.
 
 Users can select individual listings to view them in more detail, and
